@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, responsive To-Do List app built with HTML, CSS and vanilla JavaScript." />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app" aria-labelledby="app-title">
+    <header class="app__header">
+      <h1 id="app-title" class="app__title">My To-Do List</h1>
+      <p class="app__subtitle">Stay organised and get things done.</p>
+    </header>
+
+    <!-- Add task form -->
+    <form id="todo-form" class="todo-form" autocomplete="off">
+      <label for="todo-input" class="visually-hidden">Add a new task</label>
+      <input
+        id="todo-input"
+        class="todo-form__input"
+        type="text"
+        placeholder="What needs to be done?"
+        maxlength="200"
+        aria-label="Add a new task"
+        required
+      />
+      <button type="submit" class="todo-form__button" aria-label="Add task">
+        <span class="todo-form__button-icon" aria-hidden="true">+</span>
+        <span class="todo-form__button-text">Add</span>
+      </button>
+    </form>
+
+    <!-- Filters -->
+    <div class="filters" role="tablist" aria-label="Filter tasks">
+      <button class="filters__button is-active" data-filter="all" role="tab" aria-selected="true">
+        All
+      </button>
+      <button class="filters__button" data-filter="active" role="tab" aria-selected="false">
+        Active
+      </button>
+      <button class="filters__button" data-filter="completed" role="tab" aria-selected="false">
+        Completed
+      </button>
+    </div>
+
+    <!-- Task list -->
+    <section class="todo-panel" aria-live="polite">
+      <ul id="todo-list" class="todo-list"></ul>
+
+      <p id="empty-state" class="empty-state" hidden>
+        <span class="empty-state__icon" aria-hidden="true">📝</span>
+        <span id="empty-state-title" class="empty-state__title">Nothing here yet</span>
+        <span id="empty-state-text" class="empty-state__text">Add your first task above to get started.</span>
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app__footer">
+      <span id="todo-count" class="todo-count">0 tasks</span>
+      <button id="clear-completed" class="clear-completed" type="button">
+        Clear completed
+      </button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
